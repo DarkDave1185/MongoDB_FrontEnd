@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../../context/UserContext";
@@ -19,18 +18,14 @@ export default function Register() {
     e.preventDefault();
     /* try { */
     const newUser = { email, password, passwordCheck, displayName };
-    const registerResponse = await Axios.post(
-      "http://localhost:5000/users/register",
-      newUser
-    );
+    await Axios.post("http://localhost:5000/users/register", newUser);
     const loginResponse = await Axios.post(
       "http://localhost:5000/users/login",
       {
         email,
-        setPassword,
+        password,
       }
     );
-    console.log(loginResponse.data);
     setUserData({
       token: loginResponse.data.token,
       user: loginResponse.data.user,
@@ -56,10 +51,12 @@ export default function Register() {
         <input
           id="reg-pass"
           type="password"
+          autoComplete="new-password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
+          autoComplete="new-password"
           placeholder="Verify Password"
           onChange={(e) => setPasswordCheck(e.target.value)}
         />
@@ -67,6 +64,7 @@ export default function Register() {
         <input
           id="reg-uname"
           type="text"
+          autoComplete="username"
           onChange={(e) => setDisplayName(e.target.value)}
         />
         <input type="submit" value="Register" />
