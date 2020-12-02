@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Axios from "axios";
 import Header from "./components/layout/Header/Header";
+import Todo from "./components/pages/Todo/Todo";
 import Home from "./components/pages/Home/Home";
 import Login from "./components/authentication/Login/Login";
 import Register from "./components/authentication/Register/Register";
@@ -47,6 +48,7 @@ export default function App() {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route exact path="/todos" component={Todo} />
           </Switch>
         </UserContext.Provider>
       </BrowserRouter>
