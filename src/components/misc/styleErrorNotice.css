@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.error-notice {
+  margin: 5px;
+  border: teal 2px solid;
+  background-color: rgb(8, 224, 224);
+  border-radius: 5px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-notice button {
+  background-color: teal;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
